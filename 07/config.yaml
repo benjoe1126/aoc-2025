@@ -1,0 +1,8 @@
+language: kotlin
+part_one: |
+  Create a set of current positions, and for each iteration if any of those positions encounters a split increment `count` by one, also create a new set with the new head poistions
+part_two: |
+  Dynamic programming solution, with the following process:
+  - the first line of the dynamic table is filled with 0 except for where 'S' is, there it is one
+  - for each line give current positions (same as before) the amount of timelines (possible ways to get to a point) at a given position is the sum of its top three (2 diagonal + above) timelines count given we could get to that position from those position
+  - the final number of timelines is the sum of possible timelines in the last row

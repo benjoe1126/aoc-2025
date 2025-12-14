@@ -1,0 +1,8 @@
+language: go
+part_one: |
+  The solution is very much trivial, after reading the file into a slice of strings, the following operations are performed:
+  - call `countadjacentRollsFunc` passing in the slice, this returns a func that using the variable `adjacentMatrix` iterates over possible positions and if they are within bounds, checks if a roll is there
+  - at the end of the call, we have calculated the amount of adjacent roles, for part 1 we just add one to variable `count` each time the function returns less than 4
+part_two: |
+  Same solution as part one, only now we iterate "indefinetly", each iteration if we found a valid roll we count it up and replace it with an arbitrary character  
+  Repeat until no changes were made, i.e after iterating over the slice no roll with less than 4 adjacent neighbors is found

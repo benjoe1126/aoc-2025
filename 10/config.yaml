@@ -1,0 +1,13 @@
+language: python
+part_one: |
+  Simple brute force algorythm, represent each button and the goal state as a binary number,  
+  try pressing every button (xor with the possible previous states) and once we find the end state that is our solution (that is the number of presses happening)
+part_two: |
+  The secret ingredient is crime.  
+  Used numpy and scipy to solve linear equation system created by circuits and the joltage.
+  Formally:
+  - A := matrix where a<sub>i,j</sub> is the ith buttons contribution to joltage j
+  - b := the vector of joltages
+  - x := the vector of coefficients we are looking for  
+  
+  After constructing the matrices we just use `scipy.optimize.milp` to solve the euqation (getting smallest integer solutions to the system of equations)

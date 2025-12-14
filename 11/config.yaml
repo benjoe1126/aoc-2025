@@ -1,0 +1,9 @@
+language: python
+part_one: |
+  Given the graph from the input, create a canonical order and an adjecency list from that.  
+  After that use DP to find the number of paths to each node (sum of number of nodes that preceed the given node).   
+  Once done, return the last element of this list.
+
+part_two: |
+  Same as before, but instead of calculating from a -> b I calculate  a -> b -> c -> d and multiply each result  
+  (a -> b) * (b -> c) * (c -> d)

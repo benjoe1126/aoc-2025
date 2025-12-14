@@ -1,0 +1,6 @@
+language: cs
+part_one: |
+  Read in the file, create an Equation class for each column with operation being the symbol of the last line and same column.  
+  After reading the input, call `Solve` on each equation and aggregate the results (`Solve` itself aggregates each element based on the operation)
+part_two: |
+  Same method, reading is different, read through each column of each line and create a number from them (using modulo 10 each time to get last digit)

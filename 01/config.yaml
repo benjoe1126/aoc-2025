@@ -1,0 +1,14 @@
+language: elixir    
+part_one: |
+  The first subtask was quite simple, even though it required some utility to get going.  
+  After creating the functions seen in the AocUtility module, the solution was as follows:
+  - create a function `Solution.PartOne.solve` that took in a list of rotations (having made them negative if rotation is to the left, and positive otherwise), current position and an accumulator
+  - if the list is empty, return the accumulator
+  - if the position is zero, recursively call itself with the accumulator argument being incremented
+  - if it is not empty and not zero, then do the rotation and recursively call itself
+  - call the solve function with position set to 50 and accumulator set to 0
+part_two: |
+  The second subtask was in many ways similar, the differences are the following:
+  - there is no solve matching the zero position explicitly
+  - `Solution.PartTwo.times_zero_hit` function is created, which calculates how many zero hits there were (rotation/100 truncated + 1 if overrotated to either side or we hit a zero)
+  - accumulator is always incremented by `times_zero_hit`

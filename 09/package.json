@@ -1,0 +1,14 @@
+{
+  "name": "aoc2025",
+  "version": "1.0.0",
+  "description": "Solution for aoc2025 day 9",
+  "main": "part_one.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "aoc"
+  ],
+  "author": "benjoe1126",
+  "license": "ISC"
+}

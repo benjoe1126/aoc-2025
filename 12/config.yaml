@@ -1,0 +1,7 @@
+language: python
+part_one: |
+  I was literally trying to do some complex logic with fitting algorythm (worked) and adding backtracking to test all possible ways.  
+  Turns out you can just be braindead, see if the sum of the areas of blocks are greater than the size of the grid.  
+  I literally screamed when this turned out to be the case. I wasted an entire hour on this. Why?
+part_two: |
+  No part two, finish day 9

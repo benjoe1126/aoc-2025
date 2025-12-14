@@ -1,0 +1,10 @@
+language: cpp
+part_one: |
+  The first part had a greedy solution with the following pricnciples:
+  - function `max_to_jigs` finds the greatest number that either is the greatest in the sequence or the greatest where there will be other numbers after, else it own't be 2 digits
+  - also find the second greatest number, without prejudice
+  - return the found pair of number
+part_two: |
+  The solution in principle is the exact same, only difference is that instead of making a special case for the last number, we have to check each time if the number is greater than the current one.  
+  A check is also made if there are still enough digits to make it 12 digits
+  

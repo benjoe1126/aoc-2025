@@ -7,25 +7,38 @@ import (
 	"os"
 	"strings"
 	"text/template"
+
+	"gopkg.in/yaml.v3"
 )
 
-type ExerciseREADME struct {
-	Day         int
-	Explanation string
+type ExerciseConfig struct {
+	Day      int    `yaml:"day,omitempty"`
+	PartOne  string `yaml:"part_one"`
+	PartTwo  string `yaml:"part_two"`
+	Language string `yaml:"language"`
 }
 
-func getReadme(day int) (*ExerciseREADME, error) {
-	content, err := os.ReadFile(fmt.Sprintf("0%d/README.md", day))
+func getConfig(day int) (*ExerciseConfig, error) {
+	dayString := fmt.Sprintf("%d", day)
+	if day < 10 {
+		dayString = fmt.Sprintf("0%d", day)
+	}
+	content, err := os.ReadFile(fmt.Sprintf("%s/config.yaml", dayString))
 	if err != nil {
 		return nil, err
 	}
-	return &ExerciseREADME{day, string(content)}, nil
+	config := &ExerciseConfig{}
+	if err = yaml.Unmarshal(content, config); err != nil {
+		return nil, err
+	}
+	config.Day = day
+	return config, nil
 }
 
-func collectReadmes(verbose bool) []ExerciseREADME {
-	ret := make([]ExerciseREADME, 0, 25)
+func collectConfigs(verbose bool) []ExerciseConfig {
+	ret := make([]ExerciseConfig, 0, 25)
 	for i := range 26 {
-		readme, err := getReadme(i + 1)
+		readme, err := getConfig(i + 1)
 		if err != nil {
 			if verbose {
 				log.Printf("Failed getting readme for day %d: %v", i+1, err)
@@ -62,5 +75,5 @@ func main() {
 	if err != nil {
 		log.Fatal(fmt.Errorf("failed to create README.md: %v", err))
 	}
-	tpl.Execute(f, collectReadmes(*verbose))
+	tpl.Execute(f, collectConfigs(*verbose))
 }

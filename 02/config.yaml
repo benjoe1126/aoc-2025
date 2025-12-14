@@ -1,0 +1,9 @@
+language: perl
+part_one: |
+  The solution uses the followin prolog predicates:
+  - `split_middle/3` -> given a string generates two stringes which is the original split in the middle if possible
+  - `list_digits/2` -> from the first parameter creates a list contining each digit of the first param (number)
+  - `collect_same_halves/2` -> given a list (input, list of K-V-s) collects all numbers between K and V where split_middle works and the two strings are the same
+  - `sum_same_halves/2` -> given a list (same format) uses findall to get all numbers where collect_same_halves is applicable and sums the list it generated
+part_two: |
+  Almost same philosophy as before, but now uses `append/3` to generate all sublists of `list_digits/2`, and then uses `repeated_n_times/3` to check if the list from append n times repeated is the original list

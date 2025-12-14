@@ -1,0 +1,10 @@
+language: javascript
+part_one: |
+  Part one is written in vanilla js, simply check for every point pair if their distance (area of rectangle) is the greatest.
+part_two: |
+  I cheated. Using python shapely it is algorithmically easy to find a solution.  
+  My original js solution was too slow, but it used a few tricks and techniques:
+  - ray-casting with open-closed line segments to check if point is inside the polygon
+  - memoization to not doublecheck any point
+  - interval trimming, because of the shape of the actual input you only need to iterate over one semicircle to find the solution (actually used in the python code)
+  There are algorythms making it faster, maybe checking it out later (probably wont)

@@ -1,0 +1,8 @@
+language: rust
+part_one: |
+  Simply iterate over the ingredient ID-s and check if it fits into any range
+part_two: |
+  Create a new vector containing an interval endpoint (+ 1 if it is the end) and +/-1 depending if it is a start(+) or end(-) of an interval.  
+  Sort this new vector by the first element of the tuple (endpoint).  
+  After that, iterate over the list, always adding the +/- 1 to variable `sweep`.  
+  If the sweep decreases that means an interval ended, adding the end of the current interval - the start of the previous interval to the sum, also changing the last start point to the current endpoint.
