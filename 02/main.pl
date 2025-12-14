@@ -42,8 +42,8 @@ collect_same_nths([S-E | T], O) :-
     L1 > 0,
     L2 > L1,
     N is L2 / L1,
-    repeated_n_times(Os,A1,N),
-    N > 1.
+	N > 1,
+    repeated_n_times(Os,A1,N).
    
 sum_same_nths(Ranges, Sum) :-
     findall(O,collect_same_nths(Ranges, O), Nums),
